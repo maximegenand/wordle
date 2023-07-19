@@ -1,4 +1,5 @@
-//const controller = new AbortController();
+const debug = false;
+
 let wordLength = 6;
 let maxRow = 6;
 const rangeLength = [5, 8];
@@ -60,7 +61,6 @@ async function cellEvent(event) {
     if (event.type === "submit") keyValue = event.id;
     else if (event.type === "keyup") keyValue = event.key;
     keyValue = keyValue.toUpperCase();
-    //console.log(event)
 
     // Si la touche return ou delete est appuyée et qu'on est pas sur la première colonne, on efface la dernière lettre
     if ((keyValue === 'BACKSPACE' || keyValue === 'DELETE') && focusColumn > 0) {
@@ -97,25 +97,28 @@ async function cellEvent(event) {
         const data = await res.json();
 
         // Si le mot existe, on vérifie le placement des lettres
-        if (data.result) {
+        if (data.result || debug) {
             const watchedArr = inputArr[focusRow];
             const answerArr = answer.split('');
 
-            // On map pour chaque lettre
+            // On map pour chaque lettre en vérifiant seulement les lettres qui sont à leur place
             const checkArr = watchedArr.map((value, index) => {
-                // Si la lettre est à sa place
+                // Si la lettre est à sa place on return 'green'
                 if(value === answerArr[index]) {
                     answerArr[index] = '';
                     return 'green';
                 }
-                // Si la lettre existe mais n'est pas à sa place
-                else if(answerArr.includes(value)) {
+                // Sinon on retourne 'grey' pour le moment
+                else return 'grey';
+            });
+            // On refait ensuite un map pour vérifier les lettres qui ne sont pas à leur place
+            watchedArr.map((value, index) => {
+                // Si la lettre existe mais n'est pas à sa place on remplace 'grey' par 'yellow'
+                if(checkArr[index] === 'grey' && answerArr.includes(value)) {
                     const indexRemove = answerArr.indexOf(value);
                     answerArr[indexRemove] = '';
-                    return 'yellow';
+                    checkArr[index] = 'yellow';
                 }
-                // Sinon
-                else return 'grey';
             });
 
             // On effectue les changements CSS sur la ligne ainsi que sur le clavier virtuel
@@ -174,7 +177,6 @@ async function cellEvent(event) {
 
 // Fonction qui initialise la grille
 async function createGrid(event = false) {
-    //console.log(event)
     try {
         // On réinitialise les données d'input du joueur
         inputArr.splice(0);
@@ -195,6 +197,10 @@ async function createGrid(event = false) {
         // On réinitialise l'affichage de la fenêtre popup
         console.log(resWord.word);
         popupMessage('');
+        // On affiche les infos de debug s'il y a lieu
+        if(debug) {
+            document.getElementById('debug').innerHTML = 'Debug - mot : '+answer;
+        }
 
         // Création de l'affichage de la grille
         let gameBoard = '';

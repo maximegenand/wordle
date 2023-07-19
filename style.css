@@ -113,6 +113,17 @@ body {
 	background-color: white;
 	border-radius: 6px;
 }
+#debug {
+	position: absolute;
+	z-index: 10;
+	top: -22px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: red;
+	font-size: 12px;
+	font-weight: 700;
+	opacity: 0.5;
+}
 #game-board {
 	display: flex;
 	align-items: center;
