@@ -1,7 +1,7 @@
 body {
 	height: 100vh;
 	width: 100vw;
-	min-width: 375px;
+	min-width: 350px;
 	max-width:100%;
 	margin: 0;
 	color: white;
@@ -9,14 +9,22 @@ body {
 	background-color: #121213;
 }
 
+#container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+}
+
 #header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100vw;
-	min-width: 375px;
+	min-width: 350px;
 	max-width: 100%;
-	height: 8vh;
+	flex-basis: 8vh;
+	flex-shrink: 0;
 	border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
@@ -100,6 +108,8 @@ body {
 
 #container-game {
 	position: relative;
+	flex-basis: auto;
+	flex-shrink: 1;
 }
 #popup-message {
 	position: absolute;
@@ -116,19 +126,20 @@ body {
 #debug {
 	position: absolute;
 	z-index: 10;
-	top: -22px;
+	top: -15px;
 	left: 50%;
 	transform: translateX(-50%);
+	padding: 0 5px;
 	color: red;
 	font-size: 12px;
 	font-weight: 700;
-	opacity: 0.5;
+	background-color: #f8f8f8;
+	border-radius: 2px;
 }
 #game-board {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	margin-top: 25px;
 }
 
 @keyframes row-blink {
@@ -187,9 +198,11 @@ body {
 #keyboard {
 	display: flex;
 	flex-direction: column;
-	min-width: 375px;
+	min-width: 350px;
 	max-width: 100vw;
-	margin: 1vw;
+	flex-basis: auto;
+	flex-shrink: 2;
+	margin: 0.5vw 1vw;
 	text-align: center;
 }
 #keyboard > div {

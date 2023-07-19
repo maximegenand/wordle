@@ -2,68 +2,67 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<title>Wordle</title>
-	<link rel="stylesheet" href="style.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap" rel="stylesheet">
-</head>
-
-<body>
-	<div id="header">
-		<div id="header-left"></div>
-		<div id="title">Wordle</div>
-		<div id="header-right">
-			<button id="newGame">Jouer</button>
-			<div id="length">
-				<button id="up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="none"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0 -27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32"/></svg></button>
-				<span id="words-length" title="Longueur des mots">6</span>
-				<button id="down"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="none"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0 -27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32"/></svg></button>
-			</div>
-		</div>
-	</div>
-	<div id="container-game">
-		<div id="game-board"></div>
-		<div id="popup-message"></div>
-		<div id="debug"></div>
-	</div>
-	<div id="keyboard">
-		<div id="first-line">
-			<button id="A">A</button>
-			<button id="Z">Z</button>
-			<button id="E">E</button>
-			<button id="R">R</button>
-			<button id="T">T</button>
-			<button id="Y">Y</button>
-			<button id="U">U</button>
-			<button id="I">I</button>
-			<button id="O">O</button>
-			<button id="P">P</button>
-		</div>
-		<div id="second-line">
-			<button id="Q">Q</button>
-			<button id="S">S</button>
-			<button id="D">D</button>
-			<button id="F">F</button>
-			<button id="G">G</button>
-			<button id="H">H</button>
-			<button id="J">J</button>
-			<button id="K">K</button>
-			<button id="L">L</button>
-			<button id="M">M</button>
-		</div>
-		<div id="third-line">
-			<button id="ENTER" class="double"><svg width="40px" height="40px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9.00001V15H8.5M8.5 15L9.5 14M8.5 15L9.5 16M13 5H17.5C18.0523 5 18.5 5.44772 18.5 6V18C18.5 18.5523 18.0523 19 17.5 19H6.5C5.94772 19 5.5 18.5523 5.5 18V12C5.5 11.4477 5.94772 11 6.5 11H12V6C12 5.44771 12.4477 5 13 5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-			<button id="W">W</button>
-			<button id="X">X</button>
-			<button id="C">C</button>
-			<button id="V">V</button>
-			<button id="B">B</button>
-			<button id="N">N</button>
-			<button id="BACKSPACE" class="double"><svg width="40px" height="40px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 10.5L14 12M14 12L15.5 13.5M14 12L15.5 10.5M14 12L12.5 13.5M9.82843 16H17C17.9428 16 18.4142 16 18.7071 15.7071C19 15.4142 19 14.9428 19 14V10C19 9.05719 19 8.58579 18.7071 8.29289C18.4142 8 17.9428 8 17 8H9.82843C9.41968 8 9.2153 8 9.03153 8.07612C8.84776 8.15224 8.70324 8.29676 8.41421 8.58579L6.41421 10.5858C5.74755 11.2525 5.41421 11.5858 5.41421 12C5.41421 12.4142 5.74755 12.7475 6.41421 13.4142L8.41421 15.4142C8.70324 15.7032 8.84776 15.8478 9.03153 15.9239C9.2153 16 9.41968 16 9.82843 16Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-		</div>
-	</div>
-
-	<script src='script.js'></script>
-</body>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Wordle</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="header-left"></div>
+        <div id="title">Wordle</div>
+        <div id="header-right">
+          <button id="newGame">Jouer</button>
+          <div id="length">
+            <button id="up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="none"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0 -27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32" /></svg></button>
+            <span id="words-length" title="Longueur des mots">6</span>
+            <button id="down"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="none"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0 -27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32" /></svg></button>
+          </div>
+        </div>
+      </div>
+      <div id="container-game">
+        <div id="game-board"></div>
+        <div id="popup-message"></div>
+        <div id="debug"></div>
+      </div>
+      <div id="keyboard">
+        <div id="first-line">
+          <button id="A">A</button>
+          <button id="Z">Z</button>
+          <button id="E">E</button>
+          <button id="R">R</button>
+          <button id="T">T</button>
+          <button id="Y">Y</button>
+          <button id="U">U</button>
+          <button id="I">I</button>
+          <button id="O">O</button>
+          <button id="P">P</button>
+        </div>
+        <div id="second-line">
+          <button id="Q">Q</button>
+          <button id="S">S</button>
+          <button id="D">D</button>
+          <button id="F">F</button>
+          <button id="G">G</button>
+          <button id="H">H</button>
+          <button id="J">J</button>
+          <button id="K">K</button>
+          <button id="L">L</button>
+          <button id="M">M</button>
+        </div>
+        <div id="third-line">
+          <button id="ENTER" class="double"><svg width="40px" height="40px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9.00001V15H8.5M8.5 15L9.5 14M8.5 15L9.5 16M13 5H17.5C18.0523 5 18.5 5.44772 18.5 6V18C18.5 18.5523 18.0523 19 17.5 19H6.5C5.94772 19 5.5 18.5523 5.5 18V12C5.5 11.4477 5.94772 11 6.5 11H12V6C12 5.44771 12.4477 5 13 5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+          <button id="W">W</button>
+          <button id="X">X</button>
+          <button id="C">C</button>
+          <button id="V">V</button>
+          <button id="B">B</button>
+          <button id="N">N</button>
+          <button id="BACKSPACE" class="double"><svg width="40px" height="40px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 10.5L14 12M14 12L15.5 13.5M14 12L15.5 10.5M14 12L12.5 13.5M9.82843 16H17C17.9428 16 18.4142 16 18.7071 15.7071C19 15.4142 19 14.9428 19 14V10C19 9.05719 19 8.58579 18.7071 8.29289C18.4142 8 17.9428 8 17 8H9.82843C9.41968 8 9.2153 8 9.03153 8.07612C8.84776 8.15224 8.70324 8.29676 8.41421 8.58579L6.41421 10.5858C5.74755 11.2525 5.41421 11.5858 5.41421 12C5.41421 12.4142 5.74755 12.7475 6.41421 13.4142L8.41421 15.4142C8.70324 15.7032 8.84776 15.8478 9.03153 15.9239C9.2153 16 9.41968 16 9.82843 16Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
