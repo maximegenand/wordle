@@ -204,6 +204,7 @@ body {
 	flex-shrink: 2;
 	margin: 0.5vw 1vw;
 	text-align: center;
+	touch-action: manipulation;
 }
 #keyboard > div {
 	display: flex;
