@@ -250,6 +250,8 @@ async function createGrid(event = false) {
       changeClass(keyValue.id, { style: "background-color", value: "" });
   } catch {
     console.log("Error");
+    document.getElementById("game-board").innerHTML =
+      '<p>Erreur de connexion</p><p><button class="text-button" onClick="createGrid()">Recharger</button></p>';
   }
 }
 
@@ -287,7 +289,7 @@ for (let keyValue of keyboard)
   keyValue.addEventListener("click", () => cellEvent(keyValue));
 
 // Initialisation de la grille
-document.getElementById("newGame").addEventListener("click", createGrid);
+document.getElementById("new-game").addEventListener("click", createGrid);
 document
   .getElementById("up")
   .addEventListener("click", () => sizeGrid(document.getElementById("up")));

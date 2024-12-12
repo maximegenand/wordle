@@ -94,7 +94,7 @@ body {
   cursor: help;
 }
 
-#newGame {
+.text-button {
   padding: 10px 3em;
   color: white;
   font-weight: 700;
@@ -109,7 +109,7 @@ body {
   transition-property: color, text-shadow, background-color;
   transition-timing-function: ease-out;
 }
-#newGame:hover {
+.text-button:hover {
   color: black;
   text-shadow: black 1px 1px 10px;
   background-color: #f8f8f8;
